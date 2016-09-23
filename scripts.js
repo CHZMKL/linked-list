@@ -1,14 +1,26 @@
 $('#add-link-button').on('click', function() {
   var urlInput = $('#url-input').val();
+  verifyFullInput(urlInput);
   isUrlValid(urlInput);
 });
 
-// $('#add-link-form').keypress(function(event) {
-//   if (event.which == 13) {
-//     var urlInput = $('#url-input').val();
-//     isUrlValid(urlInput);
-//   }
-// });
+$('#url-input').keypress(function(event) {
+  if (event.which == 13) {
+    var urlInput = $('#url-input').val();
+    verifyFullInput(urlInput);
+    isUrlValid(urlInput);
+  }
+});
+
+function verifyFullInput(urlInput) {
+  var titleInput = $('#title-input').val();
+  if (urlInput && titleInput === '') {
+    alert('You have not entered a URL. Please, specifiy a valid URL.');
+  } else if (urlInput === '' && titleInput) {
+    alert('You have not entered a site title. Please, specifiy a title for your link.');
+  }
+  // return;
+}
 
 function isUrlValid(urlInput) {
   var urlCheck = urlInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
@@ -23,33 +35,29 @@ function invalidUrlErrorMessage() {
   alert("That URL is invalid. Please choose a valid URL.");
 }
 
-function createSiteLink(url) {
+function createSiteLink(urlInput) {
   var titleInput = $('#title-input').val();
-  var siteLink = '<li><a href="'+url+'">'+titleInput+'</a><button class="remove-link">x</button><button class="mark-as-read">Mark as Read</li>'
+  var siteLink = '<li><a class="new-url-link" href="'+urlInput+'">'+titleInput+'</a><button class="mark-as-read-button">Mark as Read</button><button class="remove-link-button""mark-as-read-button">X</li>'
   addToLinkList(siteLink);
-  totalLinks();
+  $('#title-input').focus();
 }
 
 function addToLinkList(siteLink) {
   $('.linked-list').append(siteLink);
   clearFields();
-}
-
-function totalLinks() {
-  var total = 0;
-  total++;
+  countTotals();
 }
 
 $('#title-input').on('keyup', function() {
-  buttonToggle();
+  addLinkButtonToggle();
 });
 
 $('#url-input').on('keyup', function() {
-  buttonToggle();
+  addLinkButtonToggle();
 });
 
-function buttonToggle () {
-  if ($('#url-input').val() && $('#title-input').val()){
+function addLinkButtonToggle() {
+  if ($('#url-input').val() && $('#title-input').val()) {
     $('#add-link-button').prop('disabled', false);
   } else {
     $('#add-link-button').prop('disabled', true);
@@ -62,18 +70,33 @@ function clearFields() {
   $('#add-link-button').prop('disabled', true);
 }
 
-$('.linked-list').on('click', '.remove-link', function() {
-  $('.remove-link').parent().remove();
+$('.linked-list').on('click', '.remove-link-button', function() {
+  $(this).parent().remove();
+  countTotals();
 });
 
-$('.linked-list').on('click', '.mark-as-read', function() {
-  $(this).toggleClass('read');
-
-  // $(this.sibling('a')).toggleClass('read');
-
-  // if ($('.linked-list li a').hasClass('read')) {
-  //   $('.linked-list li a').removeClass('read');
-  // } else {
-  //   $('.linked-list li a').addClass('read');
-  // }
+$('.linked-list').on('click', '.mark-as-read-button', function() {
+  $(this).parent().toggleClass('read');
+  countTotals();
+  clearReadButtonToggle();
 });
+
+function countTotals() {
+  $('.total-links').text($('.new-url-link').length);
+  $('.total-read').text($('.read').length);
+  $('.total-unread').text($('.new-url-link').length - $('.read').length);
+}
+
+$('#clear-read-links-button').on('click', function() {
+  $('.read').remove();
+  countTotals();
+  $('#clear-read-links-button').prop('disabled', true);
+});
+
+function clearReadButtonToggle() {
+  if ($('.read')) {
+    $('#clear-read-links-button').prop('disabled', false);
+  } else {
+    $('#clear-read-links-button').prop('disabled', true);
+  }
+}

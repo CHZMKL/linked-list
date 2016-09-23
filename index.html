@@ -8,20 +8,42 @@
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
   </head>
   <body>
-    <section class="container">
+    <section class="title-container">
       <header>
-        <h1>Favorite Links</h1>
-        <h3>Add your favorite links</h3>
+        <h1>B<img id="bomb-image" src="http://vignette3.wikia.nocookie.net/clubpenguin/images/9/9a/Smoothie_Smash_Bomb.gif/revision/latest?cb=20120909225634">mb Links</h1>
       </header>
 
-      <article class="add-link-form">
-        <input id="title-input" type="text" placeholder="Link Title...">
+      <section class="add-link-form">
+        <input id="title-input" type="text" placeholder="Add Link Title...">
         <input id="url-input" type="text" placeholder="http://">
         <button id="add-link-button" type="button" disabled>Add Link</button>
-      </article>
+      </section>
+    <hr>
+      <section class="linked-list">
+      </section>
+    <hr>
+      <section class="count-totals">
+        <section id="total-links">
+          <h3>Total Links</h3>
+          <p class="total-links">
+          </p>
+        </section>
 
-      <article class="linked-list">
-      </article>
+        <section>
+          <h3>Links Read</h3>
+          <p class="total-read">
+          </p>
+        </section>
+
+        <section>
+          <h3>Links Unread</h3>
+          <p class="total-unread">
+          </p>
+        </section>
+      </section>
+      <section class ="clear-read-links">
+        <button id="clear-read-links-button" type="button" disabled>Clear <span>Read</span> Links</button>
+      </section>
     </section>
   <script src="jquery.js"></script>
   <script src="scripts.js"></script>

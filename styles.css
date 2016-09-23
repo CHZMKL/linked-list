@@ -1,84 +1,239 @@
 body {
   font-family: 'Orbitron', sans-serif;
+  background: url('images/charcoal-backdrop.jpg') no-repeat center center fixed;
 }
 
-.container {
+.title-container {
   margin: auto;
-  margin-top: 100px;
-  height: 300px;
-  width: 300px;
   position: center;
-  background: white;
-  border: 1px solid black;
+  border-radius: 10%;
+  margin-top: 30px;
+  max-width: 600px;
+  opacity: 0.8;
+  background-image: linear-gradient(white, black 65%);
+  padding-bottom: 20px;
 }
 
-  header {
-    background-color: gray;
-    margin-top: -10px;
-    width: auto;
-    height: 60px;
-    border-bottom: 1px solid black;
-  }
+h1  {
+  height: 60px;
+  text-align: center;
+  padding: 25px;
+  color: black;
+  font-size: 2em;
+}
 
-  h1  {
-    width: 150px;
-    height: 20px;
-    text-align: center;
-    margin-left: 30px;
-    margin-top: 10px;
-    padding-top: 10px;
-    text-align: left;
-    color: white;
+#bomb-image {
+  width: 30px;
+  height: 30px;
+}
 
-  }
+.add-link-form {
+  text-align:center;
+}
+__________________________________
+#add-link-button:disabled {
+  cursor: not-allowed;
+  color: black;
+  background: grey;
+}
 
-  h3 {
-    width: 200px;
-    height: 25px;
-    margin-left: 30px;
-    padding-top: 5px;
-    color: white;
-  }
+#add-link-button {
+  background-color: darkred;
+  border: none;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  padding: 8px 8px 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px black;
+  display: block;
+  position: center;
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
 
-  .add-link-form {
-    width: auto;
-    height: 50px;
-    margin: auto;
-  }
+#add-link-button:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(1px);
+}
 
-  #title-input {
-    margin: 10px 2px 10px 12px;
-  }
+#add-link-button:active {
+  background-color: cyan;
+  box-shadow: #666;
+  color: black;
+  transform: translateY(1px);
+}
 
-  #url-input {
-    margin: 10px 12px 10px 2px;
-  }
+_____________
 
-  #add-link-button {
-    background-color: red;
-    border: none;
-    color: white;
-    padding 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    height: 30px;
-    width: 80px;
-    margin-left: 105px;
-    border-radius: 2px;
-    border: 1px solid black;
-    cursor: pointer;
-    box-shadow: 0 4px #999;
-    font-family: 'Orbitron', sans-serif;
-  }
+hr {
+  width:300px;
+  box-shadow: 0 0 10px 1px black;
+  height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 
-  #add-link-button:hover {
-    background-color: darkred;
-  }
+.linked-list li {
+  text-decoration: none;
+  margin-left: 20px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  #add-link-button:active {
-    background-color: gray;
-    box-shadow: 0 5px #666;
-    transform: translateY(2px);
-  }
+.linked-list li a {
+  text-decoration: none;
+  color: yellow;
+  padding-right: 10px;
+}
+
+.linked-list button {
+  background: white;
+}
+______________________________
+
+.count-totals {
+  margin-left: auto;
+}
+
+#total-links {
+  margin-top: 20px;
+}
+
+h3, p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h3 {
+  width: 200px;
+  height: 25px;
+  margin-left: 30px;
+  padding-top: 5px;
+  color: white;
+  margin: auto;
+  position: center;
+  width: 125px;
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  color: red;
+  margin: auto;
+  position: center;
+  width: 125px;
+  display: flex;
+  align-items: center;
+}
+________________________________
+.new-url-link {
+  float: left;
+}
+
+.mark-as-read-button {
+  border: none;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  color: black;
+  padding: 8px 8px 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px black;
+  margin: 0 10px;
+}
+
+.mark-as-read-button:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(1px);
+}
+
+.mark-as-read-button:active {
+  background-color: orange;
+  box-shadow: #666;
+  color: black;
+  transform: translateY(1px);
+}
+
+.remove-link-button {
+  border: none;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  color: black;
+  padding: 8px 8px 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px black;
+  margin: 0 10px;
+}
+
+.remove-link-button:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(1px);
+}
+
+.remove-link-button:active {
+  background-color: red;
+  box-shadow: #666;
+  color: black;
+  transform: translateY(1px);
+}
+__________________________________
+
+.clear-read-links {
+  display: flex;
+  flex-direction: flex-column;
+  justify-content: center;
+  /*-ms-align-items: ;
+  align-items: ;*/
+}
+
+#clear-read-links-button {
+  background-color: darkred;
+  border: none;
+  /*text-decoration: none;*/
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  padding: 8px 8px 4px 8px;
+  border-radius: 2px;
+  box-shadow: 0 2px black;
+  display: block;
+  /*position: center;*/
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  /*margin: 30px auto;*/
+  /*margin-bottom: 25px;
+  margin-top: 25px;*/*/
+}
+
+#clear-read-links-button:disabled {
+  cursor: not-allowed;
+  color: black;
+  background: grey;
+}
+
+#clear-read-links-button:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(1px);
+}
+
+#clear-read-links-button:active {
+  background-color: cyan;
+  box-shadow: #666;
+  color: black;
+  transform: translateY(1px);
+}
+
+span {
+  font-style: italic;
+}
